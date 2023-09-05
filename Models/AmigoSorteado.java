@@ -1,5 +1,5 @@
-package Basics;
-import java.util.*;
+package Models;
+
 public class AmigoSorteado {
     private Pessoa doador;
     private Pessoa recebedor;

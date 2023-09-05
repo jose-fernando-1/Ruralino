@@ -1,4 +1,4 @@
-package Controladores;
+package Controllers;
 
 public class SorteioControlador {
 }

@@ -1,5 +1,5 @@
-package Basics;
-import java.util.*;
+package Models;
+
 public class Presente {
     private String categoria;
     private String descricao;

@@ -1,5 +1,5 @@
-package Basics;
-import java.util.*;
+package Models;
+
 public class Sorteio {
     public void sortear(Grupo grupo)
     {

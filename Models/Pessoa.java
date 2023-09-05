@@ -1,4 +1,4 @@
-package Basics;
+package Models;
 import java.util.*;
 public class Pessoa {
     private String nomeCompleto;
