@@ -27,6 +27,7 @@ public class Grupo {
     }
 
     public List<Pessoa> getParticipantes() {
+
         return participantes;
     }
 
@@ -43,6 +44,7 @@ public class Grupo {
     }
 
     public void setNome_do_grupo(String nome_do_grupo) {
+
         this.nome_do_grupo = nome_do_grupo;
     }
 }

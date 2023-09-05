@@ -24,14 +24,17 @@ public class Presente {
     }
 
     public void setCategoria(String categoria) {
+
         this.categoria = categoria;
     }
 
     public void setDescricao(String descricao) {
+
         this.descricao = descricao;
     }
 
     public void setPreco(double preco) {
+
         this.preco = preco;
     }
 
