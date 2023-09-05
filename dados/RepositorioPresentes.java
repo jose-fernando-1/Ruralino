@@ -1,7 +1,7 @@
 package dados;
 import Models.Presente;
 import java.util.*;
-public class RepositorioPresentes {
+public class RepositorioPresentes implements InterfacePresente {
     private List<Presente> presentes;
     private static RepositorioPresentes uniqueInstance = null;
 
@@ -26,6 +26,11 @@ public class RepositorioPresentes {
     public void removerPresente(Presente presente)
     {
         presentes.remove(presente);
+    }
+
+    public List<Presente> listarPresentes()
+    {
+        return presentes;
     }
 
 }

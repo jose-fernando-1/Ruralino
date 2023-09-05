@@ -5,7 +5,7 @@ import Models.Pessoa;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioPessoas {
+public class RepositorioPessoas implements InterfacePessoa{
     private List<Pessoa> pessoas;
 private static RepositorioPessoas uniqueInstance = null;
     private RepositorioPessoas()
@@ -30,6 +30,11 @@ private static RepositorioPessoas uniqueInstance = null;
     public void removerPessoa(Pessoa pessoa)
     {
         pessoas.remove(pessoa);
+    }
+
+    public List<Pessoa> listarPessoas()
+    {
+        return pessoas;
     }
 
 }

@@ -1,7 +1,7 @@
 package dados;
 import Models.Grupo;
 import java.util.*;
-public class RepositorioGrupos {
+public class RepositorioGrupos implements InterfaceGrupo{
     private List<Grupo> grupos;
 
     private static RepositorioGrupos uniqueInstance = null;
@@ -27,5 +27,10 @@ public class RepositorioGrupos {
     public void removerGrupo(Grupo grupo)
     {
         grupos.remove(grupo);
+    }
+
+    public List<Grupo> listarGrupos()
+    {
+        return grupos;
     }
 }
