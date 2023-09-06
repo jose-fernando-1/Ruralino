@@ -45,12 +45,18 @@ private static RepositorioPessoas uniqueInstance = null;
         return pessoas;
     }
 
-    public AmigoSorteado sortear(Grupo grupo)
+    public Pessoa sortear(Grupo grupo)
     {
-       for(Pessoa pessoas : grupo.getParticipantes())
-       {
-           int aleatorio = gerador.nextInt(grupo.getParticipantes().size());
-       }
+        while(!pessoas_nao_sorteadas.isEmpty()) {
+            for (Pessoa pessoas : grupo.getParticipantes()) {
+
+                int aleatorio = gerador.nextInt(grupo.getParticipantes().size());
+                Pessoa pessoa_sorteada = pessoas_nao_sorteadas.get(aleatorio);
+                pessoas_nao_sorteadas.remove(aleatorio);
+            }
+
+        }
+        return pessoa_sorteada;
     }
 
 
