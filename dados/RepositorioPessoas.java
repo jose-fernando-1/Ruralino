@@ -10,13 +10,13 @@ import java.util.Random;
 
 public class RepositorioPessoas implements InterfacePessoa{
     private List<Pessoa> pessoas;
-    private List<Pessoa> pessoas_nao_sorteadas;
-    Random gerador = new Random();
+
+    private List<AmigoSorteado> amigosSorteados;
+
 private static RepositorioPessoas uniqueInstance = null;
     private RepositorioPessoas()
     {
         pessoas = new ArrayList<>();
-        pessoas_nao_sorteadas = pessoas;
     }
 
     public static RepositorioPessoas getInstanceRepositorioPessoas()
@@ -31,13 +31,11 @@ private static RepositorioPessoas uniqueInstance = null;
     public void cadastrarPessoa(Pessoa pessoa)
     {
         pessoas.add(pessoa);
-        pessoas_nao_sorteadas.add(pessoa);
     }
 
     public void removerPessoa(Pessoa pessoa)
     {
         pessoas.remove(pessoa);
-        pessoas_nao_sorteadas.remove(pessoa);
     }
 
     public List<Pessoa> listarPessoas()
@@ -45,18 +43,26 @@ private static RepositorioPessoas uniqueInstance = null;
         return pessoas;
     }
 
-    public Pessoa sortear(Grupo grupo)
-    {
-        while(!pessoas_nao_sorteadas.isEmpty()) {
-            for (Pessoa pessoas : grupo.getParticipantes()) {
+    public void sortear() {
 
-                int aleatorio = gerador.nextInt(grupo.getParticipantes().size());
-                Pessoa pessoa_sorteada = pessoas_nao_sorteadas.get(aleatorio);
-                pessoas_nao_sorteadas.remove(aleatorio);
-            }
+        List<Pessoa> participantesEmbaralhados = new ArrayList<>(pessoas);
+        amigosSorteados.clear();
+        Random gerador = new Random();
 
+        for (Pessoa participante : pessoas) {
+            Pessoa amigoSecreto;
+            do {
+                int indiceSorteado = gerador.nextInt(participantesEmbaralhados.size());
+                amigoSecreto = participantesEmbaralhados.get(indiceSorteado);
+            } while (amigoSecreto == participante);
+
+            AmigoSorteado amigoSorteado = new AmigoSorteado(participante, amigoSecreto);
+            amigosSorteados.add(amigoSorteado);
+
+            participante.setAmigoSorteado(amigoSecreto);
+            participantesEmbaralhados.remove(amigoSecreto);
         }
-        return pessoa_sorteada;
+
     }
 
 

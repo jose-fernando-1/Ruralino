@@ -6,6 +6,8 @@ public class Pessoa {
     private String senha;
     private List<Presente> lista_de_desejos;
 
+    private Pessoa amigoSorteado;
+
 
     public Pessoa(String nomeCompleto, String apelido, String senha,List<Presente> lista_de_desejos) {
         this.nomeCompleto = nomeCompleto;
@@ -31,6 +33,14 @@ public class Pessoa {
         return lista_de_desejos;
     }
 
+    public Pessoa getAmigoSorteado() {
+        return amigoSorteado;
+    }
+
+    public void setAmigoSorteado(Pessoa amigoSorteado)
+    {
+        this.amigoSorteado = amigoSorteado;
+    }
 
     public void setNomeCompleto(String nomeCompleto) {
 
