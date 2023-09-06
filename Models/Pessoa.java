@@ -6,11 +6,13 @@ public class Pessoa {
     private String senha;
     private List<Presente> lista_de_desejos;
 
+
     public Pessoa(String nomeCompleto, String apelido, String senha,List<Presente> lista_de_desejos) {
         this.nomeCompleto = nomeCompleto;
         this.apelido = apelido;
         this.senha = senha;
         this.lista_de_desejos = lista_de_desejos;
+
     }
 
     public String getNomeCompleto() {
@@ -28,6 +30,7 @@ public class Pessoa {
     {
         return lista_de_desejos;
     }
+
 
     public void setNomeCompleto(String nomeCompleto) {
 
