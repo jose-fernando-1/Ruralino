@@ -43,29 +43,28 @@ private static RepositorioPessoas uniqueInstance = null;
         return pessoas;
     }
 
-    public void sortear() {
+    public void sortear(Grupo grupo) {
 
-        List<Pessoa> participantesEmbaralhados = new ArrayList<>(pessoas);
         amigosSorteados.clear();
-        Random gerador = new Random();
+            pessoas = new ArrayList<>(grupo.getParticipantes());
+            amigosSorteados = new ArrayList<>();
+            Random gerador = new Random();
 
-        for (Pessoa participante : pessoas) {
-            Pessoa amigoSecreto;
-            do {
-                int indiceSorteado = gerador.nextInt(participantesEmbaralhados.size());
-                amigoSecreto = participantesEmbaralhados.get(indiceSorteado);
-            } while (amigoSecreto == participante);
 
-            AmigoSorteado amigoSorteado = new AmigoSorteado(participante, amigoSecreto);
-            amigosSorteados.add(amigoSorteado);
+            for (Pessoa pessoa : pessoas) {
+                Pessoa amiguinho;
 
-            participante.setAmigoSorteado(amigoSecreto);
-            participantesEmbaralhados.remove(amigoSecreto);
-        }
+                do {
+                    int indice = gerador.nextInt(pessoas.size());
+                    amiguinho = pessoas.get(indice);
+                } while (amiguinho == pessoa);
+                AmigoSorteado dupla = new AmigoSorteado(pessoa,amiguinho);
+                amigosSorteados.add(dupla);
+                 pessoa.setAmigoSorteado(amiguinho);
+                 pessoas.remove(amiguinho);
+            }
+
 
     }
-
-
-
 
 }
