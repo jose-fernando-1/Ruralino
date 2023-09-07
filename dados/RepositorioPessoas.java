@@ -45,9 +45,11 @@ private static RepositorioPessoas uniqueInstance = null;
 
     public void sortear(Grupo grupo) {
 
-        amigosSorteados.clear();
-            pessoas = new ArrayList<>(grupo.getParticipantes());
+        if (amigosSorteados.isEmpty()) {
             amigosSorteados = new ArrayList<>();
+            pessoas = new ArrayList<>(grupo.getParticipantes()); //se eu tirar o if, ou se a inicicalização da lista de amigos sorteados vier antes do amigosSorteados.isEmpty dá ruim.
+
+
             Random gerador = new Random();
 
 
@@ -58,13 +60,14 @@ private static RepositorioPessoas uniqueInstance = null;
                     int indice = gerador.nextInt(pessoas.size());
                     amiguinho = pessoas.get(indice);
                 } while (amiguinho == pessoa);
-                AmigoSorteado dupla = new AmigoSorteado(pessoa,amiguinho);
+                AmigoSorteado dupla = new AmigoSorteado(pessoa, amiguinho);
                 amigosSorteados.add(dupla);
-                 pessoa.setAmigoSorteado(amiguinho);
-                 pessoas.remove(amiguinho);
+                pessoa.setAmigoSorteado(amiguinho);
+                pessoas.remove(amiguinho);
             }
 
 
+        }
     }
 
 }
