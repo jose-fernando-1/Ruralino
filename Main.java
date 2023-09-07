@@ -32,7 +32,13 @@ public class Main {
         Grupo grupo1 = new Grupo("turminha da baderna", data, listinha, amigoSorteadoslista);
 
        List<AmigoSorteado> a = RepositorioPessoas.getInstanceRepositorioPessoas().sortear(grupo1);
-       System.out.println(a);
+        for (AmigoSorteado amigoSorteado : a) {
+            Pessoa doador = amigoSorteado.getDoador();
+            Pessoa recebedor = amigoSorteado.getRecebedor();
+
+            System.out.println(doador.getNomeCompleto() + " -> " + recebedor.getNomeCompleto());
+        }
+
 
     }
 }

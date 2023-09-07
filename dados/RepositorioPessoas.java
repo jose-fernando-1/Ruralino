@@ -44,29 +44,27 @@ private static RepositorioPessoas uniqueInstance = null;
     }
 
     public List<AmigoSorteado> sortear(Grupo grupo) {
+        amigosSorteados = new ArrayList<>();
+        List<Pessoa> participantes = new ArrayList<>(grupo.getParticipantes()); // Crie uma cópia da lista de participantes
 
+        Random gerador = new Random();
 
-            amigosSorteados = new ArrayList<>();
-            pessoas = new ArrayList<>(grupo.getParticipantes()); //se eu tirar o if, ou se a inicicalização da lista de amigos sorteados vier antes do amigosSorteados.isEmpty dá ruim.
+        for (Pessoa pessoa : grupo.getParticipantes()) {
+            Pessoa amiguinho;
 
+            do {
+                int indice = gerador.nextInt(participantes.size());
+                amiguinho = participantes.get(indice);
+            } while (amiguinho == pessoa);
 
-            Random gerador = new Random();
+            AmigoSorteado dupla = new AmigoSorteado(pessoa, amiguinho);
+            amigosSorteados.add(dupla);
+            pessoa.setAmigoSorteado(amiguinho);
+            participantes.remove(amiguinho);
+        }
 
-
-            for (Pessoa pessoa : pessoas) {
-                Pessoa amiguinho;
-
-                do {
-                    int indice = gerador.nextInt(pessoas.size());
-                    amiguinho = pessoas.get(indice);
-                } while (amiguinho == pessoa);
-                AmigoSorteado dupla = new AmigoSorteado(pessoa, amiguinho);
-                amigosSorteados.add(dupla);
-                pessoa.setAmigoSorteado(amiguinho);
-                pessoas.remove(amiguinho);
-            }
-
-            return amigosSorteados;
+        return amigosSorteados;
     }
+
 
 }
