@@ -43,9 +43,9 @@ private static RepositorioPessoas uniqueInstance = null;
         return pessoas;
     }
 
-    public void sortear(Grupo grupo) {
+    public List<AmigoSorteado> sortear(Grupo grupo) {
 
-        if (amigosSorteados.isEmpty()) {
+
             amigosSorteados = new ArrayList<>();
             pessoas = new ArrayList<>(grupo.getParticipantes()); //se eu tirar o if, ou se a inicicalização da lista de amigos sorteados vier antes do amigosSorteados.isEmpty dá ruim.
 
@@ -66,8 +66,7 @@ private static RepositorioPessoas uniqueInstance = null;
                 pessoas.remove(amiguinho);
             }
 
-
-        }
+            return amigosSorteados;
     }
 
 }

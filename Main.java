@@ -31,6 +31,8 @@ public class Main {
 
         Grupo grupo1 = new Grupo("turminha da baderna", data, listinha, amigoSorteadoslista);
 
-       RepositorioPessoas.getInstanceRepositorioPessoas().sortear(grupo1);
+       List<AmigoSorteado> a = RepositorioPessoas.getInstanceRepositorioPessoas().sortear(grupo1);
+       System.out.println(a);
+
     }
 }
