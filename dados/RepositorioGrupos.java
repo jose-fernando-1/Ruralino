@@ -1,5 +1,6 @@
 package dados;
 import Models.Grupo;
+import Models.Pessoa;
 import java.util.*;
 public class RepositorioGrupos implements InterfaceGrupo{
     private List<Grupo> grupos;
@@ -33,4 +34,20 @@ public class RepositorioGrupos implements InterfaceGrupo{
     {
         return grupos;
     }
+
+
+
+    @Override
+    public boolean buscarGrupoPorNome(Grupo grupo) {
+        for(Grupo grupo1 : grupos)
+        {
+            if(grupo1.getNome_do_grupo().equals(grupo.getNome_do_grupo()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void adicionarPessoaNoGrupo(Grupo grupo, Pessoa pessoa){}
 }

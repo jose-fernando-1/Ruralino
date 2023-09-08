@@ -43,6 +43,18 @@ private static RepositorioPessoas uniqueInstance = null;
         return pessoas;
     }
 
+    @Override
+    public boolean buscarPessoaPorApelido(String apelido) {
+        for(Pessoa pessoa : pessoas)
+        {
+            if(pessoa.getApelido().equals(apelido))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public List<AmigoSorteado> sortear(Grupo grupo) {
         amigosSorteados = new ArrayList<>();
         List<Pessoa> participantes = new ArrayList<>(grupo.getParticipantes()); // Crie uma cópia da lista de participantes
