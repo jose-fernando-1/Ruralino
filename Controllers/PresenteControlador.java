@@ -1,9 +1,26 @@
 package Controllers;
 
 import Models.Presente;
+import dados.InterfacePresente;
+import dados.*;
+
 import java.util.*;
 
 public class PresenteControlador {
     private List<Presente> presentes;
-    // Métodos para cadastrar presentes e permitir a escolha de presentes por pessoas
+
+    private InterfacePresente repositorioPresentes;
+
+    private static PresenteControlador instance;
+
+    private PresenteControlador()
+    {
+        repositorioPresentes = RepositorioPresentes.getInstanceRepositorioPresentes();
+    }
+
+
+
+
+
+
 }

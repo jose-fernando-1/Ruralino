@@ -26,7 +26,7 @@ public class PessoaControlador {
     {
         if(repositorioPessoas.buscarPessoaPorApelido(pessoa.getApelido()))
         {
-            //throw new ApelidoJaExisteException(pessoa.getApelido());
+             System.out.println("Apelido já existe");//throw new ApelidoJaExisteException(pessoa.getApelido());
         }
         else
         {

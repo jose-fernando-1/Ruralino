@@ -43,6 +43,18 @@ public class GrupoControlador {
         }
     }
 
+    public void descadastrarGrupo(Grupo grupo) throws GrupoNaoCadastradoException
+    {
+        if(!repositorioGrupos.buscarGrupoPorNome(grupo))
+        {
+            throw new GrupoNaoCadastradoException(grupo.getNome_do_grupo());
+        }
+        else
+        {
+            repositorioGrupos.removerGrupo(grupo);
+        }
+    }
+
     public void adicionarPessoaNoGrupo(Grupo grupo,Pessoa pessoa) throws GrupoNaoCadastradoException,PessoaNaoCadastradaException
     {
         if(!repositorioGrupos.buscarGrupoPorNome(grupo) || !repositorioPessoa.buscarPessoaPorApelido(pessoa.getApelido()))

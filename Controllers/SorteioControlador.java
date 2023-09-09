@@ -24,7 +24,7 @@ public class SorteioControlador {
 
     public List<AmigoSorteado> sortear(Grupo grupo) {
         amigosSorteados = new ArrayList<>();
-        List<Pessoa> participantes = new ArrayList<>(grupo.getParticipantes()); // Crie uma cópia da lista de participantes
+        List<Pessoa> participantes = new ArrayList<>(grupo.getParticipantes()); // Cria uma cópia da lista de participantes e itera nela
 
         Random gerador = new Random();
 

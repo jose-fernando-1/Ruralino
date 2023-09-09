@@ -1,5 +1,7 @@
 package dados;
 import Models.Presente;
+import Models.Pessoa;
+import dados.RepositorioPessoas;
 import java.util.*;
 public class RepositorioPresentes implements InterfacePresente {
     private List<Presente> presentes;
@@ -10,7 +12,7 @@ public class RepositorioPresentes implements InterfacePresente {
         presentes = new ArrayList<>();
     }
 
-   private static RepositorioPresentes getInstanceRepositorioPresentes()
+   public static RepositorioPresentes getInstanceRepositorioPresentes()
     {
         if(uniqueInstance==null)
         {
@@ -18,6 +20,7 @@ public class RepositorioPresentes implements InterfacePresente {
         }
         return uniqueInstance;
     }
+
 
     public void cadastrarPresente(Presente presente)
     {
@@ -31,6 +34,16 @@ public class RepositorioPresentes implements InterfacePresente {
     public List<Presente> listarPresentes()
     {
         return presentes;
+    }
+
+    public void adicionarNaListaDeDesejos(Pessoa pessoa,Presente presente)
+    {
+        pessoa.getLista_de_Desejos().add(presente);
+    }
+
+    public void removerDaListaDeDesejos(Pessoa pessoa, Presente presente)
+    {
+        pessoa.getLista_de_Desejos().remove(presente);
     }
 
 }
