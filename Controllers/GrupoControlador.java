@@ -22,6 +22,14 @@ public class GrupoControlador {
         repositorioPessoa = RepositorioPessoas.getInstanceRepositorioPessoas();
     }
 
+    public static GrupoControlador getInstanceGrupoControlador(){
+        if(instance == null){
+            instance = new GrupoControlador();
+        }
+        return instance;
+    }
+
+
 
     public void cadastrarGrupo(Grupo grupo) throws NomeDoGrupoJaExisteException
     {

@@ -44,6 +44,16 @@ private static RepositorioPessoas uniqueInstance = null;
     }
 
     @Override
+    public List<AmigoSorteado> sortear(Grupo grupo) {
+        return null;
+    }
+
+    public List<AmigoSorteado> listarAmigosSorteados()
+    {
+        return amigosSorteados;
+    }
+
+    @Override
     public boolean buscarPessoaPorApelido(String apelido) {
         for(Pessoa pessoa : pessoas)
         {
@@ -55,28 +65,7 @@ private static RepositorioPessoas uniqueInstance = null;
         return false;
     }
 
-    public List<AmigoSorteado> sortear(Grupo grupo) {
-        amigosSorteados = new ArrayList<>();
-        List<Pessoa> participantes = new ArrayList<>(grupo.getParticipantes()); // Crie uma cópia da lista de participantes
 
-        Random gerador = new Random();
-
-        for (Pessoa pessoa : grupo.getParticipantes()) {
-            Pessoa amiguinho;
-
-            do {
-                int indice = gerador.nextInt(participantes.size());
-                amiguinho = participantes.get(indice);
-            } while (amiguinho == pessoa);
-
-            AmigoSorteado dupla = new AmigoSorteado(pessoa, amiguinho);
-            amigosSorteados.add(dupla);
-            pessoa.setAmigoSorteado(amiguinho);
-            participantes.remove(amiguinho);
-        }
-
-        return amigosSorteados;
-    }
 
 
 }
