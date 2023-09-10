@@ -51,5 +51,8 @@ public class RepositorioGrupos implements InterfaceGrupo{
         return false;
     }
 
-    public void adicionarPessoaNoGrupo(Grupo grupo, Pessoa pessoa){}
+    public void adicionarPessoaNoGrupo(Grupo grupo, Pessoa pessoa)
+    {
+
+    }
 }

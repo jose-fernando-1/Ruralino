@@ -22,11 +22,11 @@ public class PessoaControlador {
         return instance;
     }
 
-    public void cadastrarPessoa(Pessoa pessoa)// throws ApelidoJaExisteException
+    public void cadastrarPessoa(Pessoa pessoa) throws ApelidoJaExisteException
     {
         if(repositorioPessoas.buscarPessoaPorApelido(pessoa.getApelido()))
         {
-             System.out.println("Apelido já existe");//throw new ApelidoJaExisteException(pessoa.getApelido());
+             throw new ApelidoJaExisteException(pessoa.getApelido());
         }
         else
         {

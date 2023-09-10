@@ -55,11 +55,11 @@ public class GrupoControlador {
         }
     }
 
-    public void adicionarPessoaNoGrupo(Grupo grupo,Pessoa pessoa) throws GrupoNaoCadastradoException,PessoaNaoCadastradaException
+    public void adicionarPessoaNoGrupo(Grupo grupo,Pessoa pessoa) throws PessoaNaoCadastradaException
     {
         if(!repositorioGrupos.buscarGrupoPorNome(grupo) || !repositorioPessoa.buscarPessoaPorApelido(pessoa.getApelido()))
         {
-            throw new GrupoNaoCadastradoException(grupo.getNome_do_grupo());
+            throw new PessoaNaoCadastradaException(pessoa.getApelido());
         }
         else
         {
